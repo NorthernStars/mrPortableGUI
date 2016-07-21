@@ -1,0 +1,77 @@
+<RootLayout>:
+	orientation: 'vertical'
+
+	BoxLayout:
+		id: 'divHeader'
+		orientation: 'horizontal'
+		size_hint: (1, 0.05)
+		padding: (10, 0, 0, 0)
+		
+		canvas.before:
+			Color:
+				rgb: 0.1, 0.1, 0.1
+			Rectangle:
+				pos: self.pos
+				size: self.size
+		
+		Label:
+			id: 'lblHeaderStatus'
+			text_size: self.size
+			halign: 'left'
+			valign: 'middle'
+			text: 'not connected!'
+
+	PageLayout:
+		page: 1
+	
+		Label:
+			canvas.before:
+				Color:
+					rgb: 0, 0, 0
+				Rectangle:
+					pos: self.pos
+					size: self.size
+					
+			text: "No settings available, not connected!"
+
+		GridLayout:
+			rows: 2
+			cols: 3
+			padding: 30
+			spacing: 30
+			
+			canvas.before:
+				Color:
+					rgb: 0, 0, 0
+				Rectangle:
+					pos: self.pos
+					size: self.size
+					
+			Button:
+				text: "Start Game"
+				
+			Button:
+				text: "Stop Game"
+				
+			Button:
+				text: "Test MR-Bots"
+				
+			Button:
+				text: "Remove all AI clients"
+				
+			Button:
+				text: "Restart Server"
+			
+			Button:
+				text: "Power Off"
+
+			
+		Label:
+			canvas.before:
+				Color:
+					rgb: 0, 0, 0
+				Rectangle:
+					pos: self.pos
+					size: self.size
+					
+			text: "Currently no game active"
