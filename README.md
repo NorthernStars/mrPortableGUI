@@ -44,15 +44,17 @@ than you need to identify the id of the touch input device:
      xinput --list | grep FT5406
 
 which shows you the touch input device and it's id you need to remember. Normally it's id=8.
-To disable x server touch events and automatically start mrPortableGUI edit rc.local
+To disable x server touch events and automatically start mrPortableGUI edit ~/.config/lxsession/LXDE-pi/autostart
 
-     sudo nano /etc/rc.local
+     sudo nano ~/.config/lxsession/LXDE-pi/autostart
 
-Add the following lines before! exit 0
+Add the following lines
 
-     xinput disable <ID>
+     @xinput disable <ID>
+     @lxterminal -e "/home/pi/mrPortableGUI/start.sh"
 
-Replace <ID> with the id of your touch device (normally 8). That's all.
+Replace <ID> with the id of your touch device (normally 8). If you used another path to clone mrPortableGUI repository you have to change the path to the start script in the second line above.
+Now simply reboot and that's all.
 
 
 ### Hint: Running kivy application on touch screen
