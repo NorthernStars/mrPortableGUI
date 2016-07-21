@@ -1,0 +1,4 @@
+- Creating user interface
+- Implement starting of MR server, vision, botcontrol and graphic
+- Adding MR server listener for graphic output
+- Implementing remote control client for handling server
