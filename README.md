@@ -63,7 +63,7 @@ For that you can set the display where kivy should show the application on conso
 
      export VC_DISPLAY=4
 
-or add the following lines at the very top of your kivy application code (before importing kivy!:
+or add the following lines at the very top of your kivy application code (before importing kivy!):
 
      import os
      os.environ['KIVY_BCM_DISPMANX_ID'] = '4'
