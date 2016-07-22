@@ -21,57 +21,104 @@
 			valign: 'middle'
 			text: 'not connected!'
 
-	PageLayout:
-		page: 1
-	
-		Label:
-			canvas.before:
-				Color:
-					rgb: 0, 0, 0
-				Rectangle:
-					pos: self.pos
-					size: self.size
-					
-			text: "No settings available, not connected!"
+	TabbedPanel:
+		do_default_tab: False
+		tab_pos: 'bottom_mid'
 
-		GridLayout:
-			rows: 2
-			cols: 3
-			padding: 30
-			spacing: 30
+		TabbedPanelItem:
+			id: tabControl
+			text: "Control"
+			GridLayout:
+				rows: 2
+				cols: 3
+				padding: 30
+				spacing: 30
 			
-			canvas.before:
-				Color:
-					rgb: 0, 0, 0
-				Rectangle:
-					pos: self.pos
-					size: self.size
+				canvas.before:
+					Color:
+						rgb: 0, 0, 0
+					Rectangle:
+						pos: self.pos
+						size: self.size
 					
-			Button:
-				text: "Start Game"
+				Button:
+					text: "Start Game"
+					background_color: (0, 1., 0, 1.)
 				
-			Button:
-				text: "Stop Game"
+				Button:
+					text: "Stop Game"
+					background_color: (1., 0, 0, 1.)
 				
-			Button:
-				text: "Test MR-Bots"
+				Button:
+					text: "Test MR-Bots"
 				
-			Button:
-				text: "Remove all AI clients"
+				Button:
+					text: "Remove all AI clients"
 				
-			Button:
-				text: "Restart Server"
+				Button:
+					text: "Restart Server"
 			
-			Button:
-				text: "Power Off"
+				Button:
+					text: "Power Off"
 
 			
-		Label:
-			canvas.before:
-				Color:
-					rgb: 0, 0, 0
-				Rectangle:
-					pos: self.pos
-					size: self.size
+		TabbedPanelItem:
+			text: "Game"
+			GridLayout:
+				rows: 4
+				cols: 3
+				canvas.before:
+					Color:
+						rgb: 0, 0, 0
+					Rectangle:
+						pos: self.pos
+						size: self.size
 					
-			text: "Currently no game active"
+				Label:
+					id: lblBlueTeamName
+					text: "Blue Team"
+					font_size: 30
+				Label:
+					text: "vs."
+					font_size: 30
+				Label:
+					id: lblYellowTeamName
+					text: "Yellow Team"
+					font_size: 30
+					
+				Label:
+					id: lblBlueTeamScore
+					text: "0"
+					font_size: 250
+				
+				Label:
+					text: ":"
+					font_size: 100
+					
+				Label:
+					id: lblYellowTeamScore
+					text: "0"
+					font_size: 250
+					
+				Widget:
+				
+				Label:
+					id: lblGameTime
+					text: "00:00:00"
+					font_size: 30
+				
+				
+		TabbedPanelItem:
+			text: "Settings"
+			GridLayout:
+				rows: 1
+				cols: 1
+				canvas.before:
+					Color:
+						rgb: 0, 0, 0
+					Rectangle:
+						pos: self.pos
+						size: self.size
+					
+				Label:
+					text: "no settings available"
