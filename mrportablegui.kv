@@ -1,128 +1,167 @@
-<RootLayout>:
-	orientation: 'vertical'
-
+<MainScreen>:
 	BoxLayout:
-		id: 'divHeader'
-		orientation: 'horizontal'
-		size_hint: (1, 0.05)
-		padding: (10, 0, 0, 0)
+		orientation: 'vertical'
+
+		BoxLayout:
+			id: 'divHeader'
+			orientation: 'horizontal'
+			size_hint: (1, 0.05)
+			padding: (10, 0, 0, 0)
+	
+			canvas.before:
+				Color:
+					rgb: 0.1, 0.1, 0.1
+				Rectangle:
+					pos: self.pos
+					size: self.size
+	
+			Label:
+				id: 'lblHeaderStatus'
+				text_size: self.size
+				halign: 'left'
+				valign: 'middle'
+				text: 'not connected!'
+
+		TabbedPanel:
+			id: divTabPanel
+			do_default_tab: False
+			tab_pos: 'bottom_mid'
+			tab_height: 80
+			tab_width: 150
+	
+
+			TabbedPanelItem:
+				id: tabControl
+				text: "Control"
 		
-		canvas.before:
-			Color:
-				rgb: 0.1, 0.1, 0.1
-			Rectangle:
-				pos: self.pos
-				size: self.size
+				GridLayout:
+					rows: 2
+					cols: 1
+					padding: 30
+					spacing: 30
+		
+					canvas.before:
+						Color:
+							rgb: 0, 0, 0
+						Rectangle:
+							pos: self.pos
+							size: self.size
+											
+					StackLayout:				
+						size_hint_y: 0.2
+						orientation: 'rl-tb'
+			
+						ImageButton:
+							size_hint_x: 0.1
+							on_press:
+								root.manager.transition.direction = 'up'
+								root.manager.current='PowerOffScreen'
+							
+							Image:
+								source: "img/pause.png"		
+								size: self.parent.size
+								pos: self.parent.pos
+								source: "img/power.png"
+								allow_stretch: True			
+				
+					GridLayout:
+						rows: 1
+						cols: 2
+						spacing: 30				
+						
+						ImageButton:
+							on_press: print("play")
+							
+							Image:
+								source: "img/pause.png"		
+								size: self.parent.size
+								pos: self.parent.pos
+
+						Image:
+							source: "img/stop.png"
+
+		
+			TabbedPanelItem:
+				text: "Game"
+				GridLayout:
+					rows: 4
+					cols: 3
+					canvas.before:
+						Color:
+							rgb: 0, 0, 0
+						Rectangle:
+							pos: self.pos
+							size: self.size
+				
+					Label:
+						id: lblBlueTeamName
+						text: "Blue Team"
+						font_size: 30
+					Label:
+						text: "vs."
+						font_size: 30
+					Label:
+						id: lblYellowTeamName
+						text: "Yellow Team"
+						font_size: 30
+				
+					Label:
+						id: lblBlueTeamScore
+						text: "0"
+						font_size: 250
+			
+					Label:
+						text: ":"
+						font_size: 100
+				
+					Label:
+						id: lblYellowTeamScore
+						text: "0"
+						font_size: 250
+				
+					Widget:
+			
+					Label:
+						id: lblGameTime
+						text: "00:00:00"
+						font_size: 30
+			
+			
+			TabbedPanelItem:
+				text: "Settings"
+				GridLayout:
+					rows: 1
+					cols: 1
+					canvas.before:
+						Color:
+							rgb: 0, 0, 0
+						Rectangle:
+							pos: self.pos
+							size: self.size
+				
+					Label:
+						text: "no settings available"
+
+<PowerOffScreen>:
+	BoxLayout:
+		orientation: 'vertical'
+		padding: 30	
 		
 		Label:
-			id: 'lblHeaderStatus'
-			text_size: self.size
-			halign: 'left'
-			valign: 'middle'
-			text: 'not connected!'
-
-	TabbedPanel:
-		do_default_tab: False
-		tab_pos: 'bottom_mid'
-		tab_height: 80
-		tab_width: 150
+			text: "Do you really want to switch of the system?"
+			font_size: 30
 		
-
-		TabbedPanelItem:
-			id: tabControl
-			text: "Control"
+		GridLayout:
+			rows: 1
+			cols: 2
+			spacing: 30
 			
-			GridLayout:
-				rows: 2
-				cols: 3
-				padding: 30
-				spacing: 30
-			
-				canvas.before:
-					Color:
-						rgb: 0, 0, 0
-					Rectangle:
-						pos: self.pos
-						size: self.size
-					
-				Button:
-					text: "Start Game"
-					background_color: (0, 1., 0, 1.)
+			Button:
+				text: "Switch Off"
+				on_press: exit()
 				
-				Button:
-					text: "Stop Game"
-					background_color: (1., 0, 0, 1.)
-				
-				Button:
-					text: "Test MR-Bots"
-				
-				Button:
-					text: "Remove all AI clients"
-				
-				Button:
-					text: "Restart Server"
-			
-				Button:
-					text: "Power Off"
-
-			
-		TabbedPanelItem:
-			text: "Game"
-			GridLayout:
-				rows: 4
-				cols: 3
-				canvas.before:
-					Color:
-						rgb: 0, 0, 0
-					Rectangle:
-						pos: self.pos
-						size: self.size
-					
-				Label:
-					id: lblBlueTeamName
-					text: "Blue Team"
-					font_size: 30
-				Label:
-					text: "vs."
-					font_size: 30
-				Label:
-					id: lblYellowTeamName
-					text: "Yellow Team"
-					font_size: 30
-					
-				Label:
-					id: lblBlueTeamScore
-					text: "0"
-					font_size: 250
-				
-				Label:
-					text: ":"
-					font_size: 100
-					
-				Label:
-					id: lblYellowTeamScore
-					text: "0"
-					font_size: 250
-					
-				Widget:
-				
-				Label:
-					id: lblGameTime
-					text: "00:00:00"
-					font_size: 30
-				
-				
-		TabbedPanelItem:
-			text: "Settings"
-			GridLayout:
-				rows: 1
-				cols: 1
-				canvas.before:
-					Color:
-						rgb: 0, 0, 0
-					Rectangle:
-						pos: self.pos
-						size: self.size
-					
-				Label:
-					text: "no settings available"
+			Button:
+				text: "Abort"
+				on_press:
+					root.manager.transition.direction = 'down'
+					root.manager.current='MainScreen'
