@@ -47,7 +47,7 @@ Now you have to disable touch event inside the x server because otherwise touch 
 
     xinput --list | grep FT5406
 
-which shows you the touch input device and it's id you need to remember. Normally it's id=8.
+which shows you the touch input device and it's id you need to remember. Normally it's id=8. This is only possible on real device screen, not using SSH!
 To disable x server touch events and automatically start mrPortableGUI edit ~/.config/lxsession/LXDE-pi/autostart
 
     sudo nano ~/.config/lxsession/LXDE-pi/autostart
