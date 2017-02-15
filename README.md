@@ -24,6 +24,15 @@ Add to your /boot/config.txt the following line:
 
 Reboot and now the pc monitor should be your primary screen.
 Now you need to enable the touch input inside kivy.
+First you need to load python kivy module once. Open python console:
+
+    python
+    
+Load kivy module and exit python console:
+
+    import kivy
+    exit()
+
 Edit the kivy config file ~/.kivy/config.ini :
 
      nano ~/.kivy/config.ini
