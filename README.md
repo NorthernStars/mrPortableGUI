@@ -43,12 +43,7 @@ and add/replace content of [input] section with the following:
     mtdev_%(name)s = probesysfs,provider=mtdev
     hid_%(name)s = probesysfs,provider=hidinput
 
-Now you have to disable touch event inside the x server because otherwise touch on the touch screen GUI will effect the pc monitor output.
-First you need to install xinput:
-
-    sudo apt-get install xinput
-
-than you need to identify the id of the touch input device:
+Now you have to disable touch event inside the x server because otherwise touch on the touch screen GUI will effect the pc monitor output. First you need to identify the id of the touch input device:
 
     xinput --list | grep FT5406
 
