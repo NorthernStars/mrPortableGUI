@@ -8,9 +8,10 @@ mrPortableGUI uses the kivy touch framework to display a simple user interface f
 
 ## Installation
 This installation was tested on a Raspian.
-On your Raspberry Pi update and upgrade your operating system to it's latest version and than install kivy, xinput and git:
+On your Raspberry Pi update and upgrade your operating system to it's latest version and than install kivy, xinput and git.
+Follow this guide for installing kivy: https://kivy.org/docs/installation/installation-rpi.html and after that, install the rest:
 
-    sudo apt-get install python-kivy xinput git
+    sudo apt-get install xinput git
 
 Now clone the mrPortableGUI into your home directoy
 
