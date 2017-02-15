@@ -3,7 +3,7 @@ os.environ['KIVY_BCM_DISPMANX_ID'] = '4'
 
 
 import kivy
-kivy.require('1.9.0') # replace with your current kivy version !
+kivy.require('1.8.0') # replace with your current kivy version !
 
 from kivy.app import App
 from kivy.uix.screenmanager import ScreenManager, Screen
