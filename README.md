@@ -28,7 +28,7 @@ Edit the kivy config file ~/.kivy/config.ini :
 
      nano ~/.kivy/config.ini
 
-and add replace content of [input] section with the following:
+and add/replace content of [input] section with the following:
 
      mouse = mouse
      mtdev_%(name)s = probesysfs,provider=mtdev
